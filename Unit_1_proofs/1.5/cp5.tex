@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{enumitem}
+
+\title{Math for Computer Science - In class Problems - Week 3}
+\author{Fredy Ranthun}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+
+\section*{Problem 2}
+\begin{enumerate}[label=\alph*.]
+  \setlength{\itemindent}{0pt}
+  \item \[
+          \exists u (uuu = x)
+        \]
+        Name: THREE-COPIES($x$)
+  \item \[
+          \exists u (uu = x \text{ AND } \text{NO-1S}(u))
+        \]
+        Name: EVEN-LENGTH-AND-NO-1S($x$)
+  \item \[
+          \text{NOT}(\text{SUBSTRING}(1,x)) \text{ OR } \text{NOT}(\text{SUBSTRING}(0,x))
+        \]
+        Name: ONLY-0S-OR-ONLY-1S($x$)
+  \item \[
+          \exists u (1u1 = x \text{ AND } \text{NO-1S}(u))
+        \]
+        Name: IS-2k+1($x$)
+  \item Let's assume x contains at least a 1. This way x will not be the prefix of '0x',
+        since each 1 would shifted to the right.
+\end{enumerate}
+
+\section*{Problem 3}
+
+\[
+  \exists s \forall t_1 \forall t_2 \forall t_3 \left(E(s, t_1) \land E(s, t_2) \implies t_1 = t_2 \lor t_1 = t_3 \lor t_2 = t_3 \right)
+\]
+
+\section*{Problem 4}
+
+\section*{Problem 5}
+\begin{enumerate}[label=\alph*.]
+  \setlength{\itemindent}{0pt}
+  \item There are at least three different people, x, y and z which belongs to the cabal.
+  \item Either Siggi is not a cabal, or Annie is not a cabal, or neither one of them is a cabal.
+  \item If Elizabeth is a cabal, then everyone is a Cabal. So, Elizabeth can not be a cabal, considering the previous item.
+  \item If Annie is a cabal then Siggi is a cabal. So Annie is not a Cabal, considering at least one of them is not a cabal.
+  \item If either Ben or Albert are cabal, then Tom is not a cabal.
+  \item if eight Ben or Siggi are cabal, then Adam is not a cabal.
+  \item So, at least three cabal, with the possibilities: Adam, Tom, Albert, Ben, Siggi
+  \item Suppose Ben is Cabal, then Tom and Adam are not cabal. The group would be: Ben, Albert, Siggi.
+  \item If Tom is cabal, then Albert and Ben are not. The group would have at most two people, since if Siggi is cabal, then Adam is not.
+  \item If Adam is cabal, then Siggi and Ben are not.  The group would have at most two people, since if Albert is cabal, then Tom is not.
+  \item The only possible group is Ben, Albert, and Siggi.
+\end{enumerate}
+
+\end{document}

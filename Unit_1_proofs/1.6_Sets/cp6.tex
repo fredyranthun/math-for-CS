@@ -1,0 +1,174 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\title{Class Problems 6}
+\author{Fredy}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercise 1}
+% Write your solution for Exercise 1 here
+\[
+  (P \land \neg Q) \lor (P \land Q)
+\]
+
+\begin{tabular}{|c|c|c|c|c|}
+  \hline
+  $P$ & $Q$ & $\neg Q$ & $(P \land \neg Q) \lor (P \land Q)$ \\
+  \hline
+  T   & T   & F        & T                                   \\
+  \hline
+  T   & F   & T        & T                                   \\
+  \hline
+  F   & T   & F        & F                                   \\
+  \hline
+  F   & F   & T        & F                                   \\
+  \hline
+\end{tabular}
+
+\paragraph{}
+This table shows the truth values for the expression $(P \land \neg Q) \lor (P \land Q)$. As we can see, the expression is equivalent to $P$.
+
+\[
+  A = (A - B) \cup (A \cap B)
+\]
+
+\[
+  x \in A \iff x \in (A - B) \cup (A \cap B)
+\]
+
+\[
+  \iff x \in (A - B) \lor x \in (A \cap B)
+\]
+
+\[
+  \iff (x \in A \land x \notin B) \lor (x \in A \land x \in B)
+\]
+
+\[
+  \iff (x \in A) \land (x \in B \lor x \notin B)
+\]
+
+\[
+  \iff (x \in A)
+\]
+
+
+\section*{Exercise 2}
+% Write your solution for Exercise 2 here
+\[
+  (x = y) ::= \forall z . (z \in x \iff z \in y)
+\]
+\begin{enumerate}[label=\alph*.]
+  \item
+        \[
+          (x = \emptyset) ::= \forall z . (z \notin x)
+        \]
+  \item
+        \[
+          (x = {y,z}) ::= \forall t . (t \in x \iff t = y \lor t = z)
+        \]
+  \item
+        \[
+          (x \subseteq y) ::= \forall z . (z \in x \implies z \in y)
+        \]
+  \item
+        \[
+          (x = z \cup y) ::= \forall t . (t \in x \iff t \in y \lor t \in z)
+        \]
+  \item
+        \[
+          (x = z - y) ::= \forall t . (t \in x \iff t \in z \land t \notin y)
+        \]
+
+  \item
+        \[
+          (x = pow(y)) ::= \forall z . (z \in x \iff z \subseteq y)
+        \]
+  \item
+        \[
+          x = \bigcup_{z \in y} z ::= \forall t . \exists z (t \in z \land z \in \bigcup_{z \in y} z)
+        \]
+\end{enumerate}
+
+
+
+\section*{Exercise 3}
+% Write your solution for Exercise 3 here
+\begin{enumerate}[label=\alph*.]
+  \item
+        \[
+          (a,b) = \{a,b\}
+        \]
+        \paragraph{}
+        We can not define the order of elements in a set, so there is no way to define if the sequence represented
+        by the set $\{a,b\}$ is $(a,b)$ or $(b,a)$.
+  \item
+        \[
+          (a,b) = \{a,\{b\}\}
+        \]
+        \paragraph{}
+        Let's assume $a$ is the set $\{1\}$, and $b$ is $2$. With this definition, the pair would be
+        represented by $\{\{1\},\{2\}\}$. However, this definition is ambiguos, it can represent either
+        the pair $(\{1\},2)$ or the pair $(\{2\},1)$.
+  \item
+        \[
+          (a,b) = \{a,\{a,b\}\}
+        \]
+        \paragraph{}
+        using the axiom of regularity, it is possible to say:
+
+
+        \[
+          \forall x (x \neq \emptyset \implies (\exists y \in x)(y \cap x = \emptyset))
+        \]
+
+        \paragraph{}
+        If $a = c$ and $b = d$, then $\{a,\{a,b\}\} = \{c,\{c,d\}\}$. As $a$ belongs to the left hand side,
+        it must belong to the right hand side as well, so either $a = c$ or $a = \{c, d\}$.
+        if $a = \{c, d\}$, then $\{a, b\} = c$ or $\{a, b\} = \{c, d\}$.
+
+        \paragraph{}
+        if $\{a, b\} = c$ then $c \in \{c,d\} = a$ and $a \in c$, and this contradicts the axiom of
+        regularity.
+
+        \paragraph{}
+        if $\{a, b\} = \{c, d\}$, then $a$ is an element of $a$, again contradicting regularity.
+        Hence $a = c$ must hold.
+
+        \paragraph{}
+        So either $\{a, b\} = \{c, d\}$ or $\{a, b\} = c$.
+        if $\{a, b\} = c$ and $a = c$, then c is element of c, contradicting regularity.
+        So, $a = c$ and $\{a, b\} = \{c, d\}$.
+        So, $\{b\} = \{a, b\} - \{a\} = \{c, d\} - \{c\} = \{d\}$, so $b = d$.
+
+
+\end{enumerate}
+
+\section*{Exercise 4}
+% Write your solution for Exercise 4 here
+\paragraph{}
+The first player can choose three options: a set with one element, two elements, three elements.
+Let's analyze by case.
+\begin{enumerate}[label=\alph*.]
+  \item Set with one element.
+        \paragraph{}
+        The second player then can choose a set with three elements, and the game will happen the same way the three elements game.
+        if he chooses a one element, the game will be won by player one.
+        If he chooses two, the game will be won player one.
+
+  \item Set with two elements.
+        \paragraph{}
+        The second player must choose the set with the other two elements, so he wins the game.
+  \item Set with three elements.
+        \paragraph{}
+        The second player must choose the set with the other one element, so he wins the game.
+\end{enumerate}
+
+\end{document}

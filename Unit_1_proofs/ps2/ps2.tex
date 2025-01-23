@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Problem Set 2}
+\author{Fredy Ranthun}
+\date{\today}
+
+\maketitle
+
+\section*{Problem 1}
+
+\begin{enumerate}
+  \item[a.] Item 1a solution here.
+        \[
+          Members(p,a,b) ::= \forall z.(z \in p \iff z = a \lor \ z = b)
+        \]
+  \item[b.] Item 1b solution here.
+        \[
+          p = Pair(a,b) ::= Members(p, a, \{a, b\})
+        \]
+  \item[c.] Item 1c solution here.
+        \[
+          Second(p,b) ::= \exists z. \exists y.(Members(p,z,y) \land Members(y,z,b))
+        \]
+\end{enumerate}
+
+\section*{Problem 2}
+
+\[
+  \overline{A \cap B} = \overline{A} \cup \overline{B}
+\]
+
+\[
+  z \in \overline{A \cap B} \iff z \in \overline{A} \cup \overline{B}
+\]
+
+\[
+  \iff z \in \overline{A} \lor z \in \overline{B}
+\]
+
+\[
+  \iff NOT (z \in {A}) \lor NOT (z \in {B})
+\]
+
+\paragraph{}
+Considering the propositional version of De Morgan’s Law:
+
+\[
+  NOT (z \in {A}) \lor NOT (z \in {B}) \equiv NOT(z \in {A} \land z \in {B})
+\]
+
+\[
+  NOT(z \in {A} \land z \in {B}) \iff NOT(z \in {A} \cap {B})
+\]
+
+\[
+  \iff z \notin {A} \cap {B}
+\]
+
+\[
+  \iff z \in \overline{A \cap B}
+\]
+
+\end{document}
